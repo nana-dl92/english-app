@@ -5,7 +5,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://english-app-frontend.onrender.com', // ✅ domain frontend của bạn
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json()); // Ensure this line is present to parse JSON bodies
 
 // Routes
